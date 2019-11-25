@@ -13,7 +13,7 @@ scoop bucket add extras
 
 scoop update
 
-scoop install grep which sudo miniconda
+scoop install grep which miniconda
 
 Install-Module -Name PSReadLine -AllowPrerelease -Scope CurrentUser -Force -SkipPublisherCheck
 Install-Module posh-git -Scope CurrentUser
@@ -27,5 +27,9 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution 
 
 # Disable LockScreen
 Rename-Item -Path "C:\Windows\SystemApps\Microsoft.LockApp_cw5n1h2txyewy" -NewName "!Microsoft.LockApp_cw5n1h2txyewy"
+
+# Disable Bing Web Results in Search
+# https://www.bennetrichter.de/en/tutorials/windows-10-disable-web-search/
+reg add "HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Search" /v BingSearchEnabled1 /t REG_DWORD /d 0
 
 . "remove-default-apps.ps1"

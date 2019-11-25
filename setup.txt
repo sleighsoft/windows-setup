@@ -1,8 +1,0 @@
-# Font
-https://github.com/powerline/fonts/tree/master/LiberationMono
-
-# ConEmu
-https://www.fosshub.com/ConEmu.html
-
-# Miniconda
-https://conda.io/miniconda.html

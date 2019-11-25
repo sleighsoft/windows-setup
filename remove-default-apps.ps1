@@ -1,5 +1,5 @@
-#   Description:
-# This script removes unwanted Apps that come with Windows. If you  do not want
+# Description:
+# This script removes unwanted Apps that come with Windows. If you do not want
 # to remove certain Apps comment out the corresponding lines below.
 
 function Takeown-Registry($key) {
