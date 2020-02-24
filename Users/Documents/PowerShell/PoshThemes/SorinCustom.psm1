@@ -57,7 +57,8 @@ $sl = $global:ThemeSettings #local settings
 $sl.PromptSymbols.PromptIndicator = [char]::ConvertFromUtf32(0x3E)
 $sl.Colors.PromptForegroundColor = [ConsoleColor]::White
 $sl.Colors.PromptSymbolColor = [ConsoleColor]::White
-$sl.Colors.PromptHighlightColor = [ConsoleColor]::DarkBlue
+$sl.Colors.PromptHighlightColor = [ConsoleColor]::Green
+$sl.Colors.DriveForegroundColor = [ConsoleColor]::Green
 $sl.Colors.WithForegroundColor = [ConsoleColor]::DarkRed
 $sl.Colors.WithBackgroundColor = [ConsoleColor]::Magenta
 
