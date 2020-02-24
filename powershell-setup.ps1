@@ -33,6 +33,9 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser
 
+Write-Output "Setting GIT_SSH to C:\Windows\System32\OpenSSH\ssh.exe"
+[System.Environment]::SetEnvironmentVariable('GIT_SSH', 'C:\Windows\System32\OpenSSH\ssh.exe', 'USER')
+
 try {
   Write-Output "Moving PowerShell profile to $env:USERPROFILE\Documents"
   Copy-Item Users\Documents\PowerShell $env:USERPROFILE\Documents -recurse -force
