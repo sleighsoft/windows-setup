@@ -1,0 +1,104 @@
+{
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "editor.suggestSelection": "first",
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "explorer.confirmDelete": false,
+    "terminal.integrated.shell.windows": "${env:localappdata}\\Microsoft\\powershell\\pwsh.exe",
+    "terminal.integrated.shellArgs.windows": ["-nologo", " -WorkingDirectory", "${fileDirname}"],
+    "window.zoomLevel": -1,
+    "files.autoSave": "afterDelay",
+    "[python]": {
+        "editor.rulers": [80,120],
+    },
+    "files.exclude": {
+        "**/__pycache__/": true
+    },
+    "workbench.startupEditor": "newUntitledFile",
+    "editor.acceptSuggestionOnEnter": "smart",
+    "terminal.integrated.scrollback": 50000,
+    "explorer.confirmDragAndDrop": false,
+    "editor.renderWhitespace": "boundary",
+    "git.defaultCloneDirectory": "C:\\Development\\github\\",
+    "terminal.integrated.cursorStyle": "line",
+    "python.pythonPath": "${env:homepath}\\scoop\\apps\\miniconda3\\current\\python.exe",
+    "autoDocstring.docstringFormat": "google",
+    "workbench.colorTheme": "Better Cobalt",
+    "markdown.preview.scrollEditorWithPreview": false,
+    "markdown.preview.scrollPreviewWithEditor": false,
+    "workbench.colorCustomizations": {
+    //     "editor.background": "#1f303a"
+        "titleBar.activeBackground": "#071027"
+    },
+    "python.analysis.memory.keepLibraryAst": false,
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
+    // "editor.scrollbar.horizontal": "hidden",
+    // "editor.scrollbar.vertical": "hidden",
+    "ltex.additionalRules.motherTongue":"de-DE",
+    "files.autoSaveDelay": 2000,
+    "latex-workshop.view.pdf.viewer": "tab",
+    "editor.minimap.enabled": false,
+    "editor.cursorStyle": "block",
+    "latex-workshop.latex.recipes": [
+        {
+            "name": "pdflatex ➞ bibtex ➞ pdflatex × 2",
+            "tools": [
+                "pdflatex",
+                "bibtex",
+                "pdflatex",
+                "pdflatex"
+            ]
+        },
+        {
+            "name": "latexmk 🔃",
+            "tools": [
+                "latexmk"
+            ]
+        }
+    ],
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "pdflatex",
+            "command": "pdflatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "%DOC%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        }
+    ],
+    "workbench.panel.defaultLocation": "right",
+    "terminals.autorun": false,
+    "terminals.multiplexer": "tmux",
+    "git.autofetch": true,
+    "python.formatting.provider": "black",
+    "python.jediEnabled": false,
+    "[markdown]": {
+        "editor.defaultFormatter": "yzhang.markdown-all-in-one"
+    },
+    "pythonTestExplorer.testFramework": "pytest"
+}

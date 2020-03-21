@@ -1,19 +1,49 @@
-# Clean Windows 10
+# Setup Windows 10
 
 Removes unwanted software from Windows 10 installations!
 
 Installs some useful software instead:
 
+- Powershell Core
+
 - scoop (package manager)
-    - grep which miniconda
-    - PSReadLine
+    - grep
+    - which
+    - miniconda
     - posh-git
-    - oh-my-posh
+    - oh-my-posh + theme
+        - SorinCustom
+    - vscode + extensions
+        - afgomez.better-cobalt
+        - hbenl.vscode-test-explorer
+        - littlefoxteam.vscode-python-test-adapter
+        - ms-python.python
+        - njpwerner.autodocstring
+        - tomoki1207.selectline-statusbar
+        - VisualStudioExptTeam.vscodeintellicode
+        - bungcip.better-toml
+        - yzhang.markdown-all-in-one
+    - firefox
+    - keepass
 
 Disables:
 
 - LockScreen (that thing where you have to click once to remove before you can type in your password)
 - Bing Search in Windows search
+
+Protect Privacy:
+    - Disables Windows Feedback Experience
+    - Stops Cortana from being used as part of your Windows Search Function
+    - Disables Web Search in Start Menu
+    - Stops the Windows Feedback Experience from sending anonymous data
+    - Prevents bloatware applications from returning and removes Start Menu suggestions
+    - Disables Wi-fi Sense
+    - Disables live tiles
+    - Turns off Data Collection via the AllowTelemtry key by changing it to 0
+    - Disabling Location Tracking
+    - Disables People icon on Taskbar
+    - Disables scheduled tasks that are considered unnecessary 
+    - Disabling the Diagnostics Tracking Service
 
 
 Removes default apps:
@@ -91,3 +121,18 @@ Removes default apps:
     - "A278AB0D.DisneyMagicKingdoms"
     - "828B5831.HiddenCityMysteryofShadows"
     - "ActiproSoftwareLLC.562882FEEB491"
+
+
+## Setup
+
+1. Open a PowerShell Terminal
+2. Run `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force`
+3. Run `Unblock-File .\run-all.ps1`
+4. Run `.\run-all.ps1`
+
+All in one:
+```powershell
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
+Unblock-File .\run-all.ps1
+.\run-all.ps1
+```
