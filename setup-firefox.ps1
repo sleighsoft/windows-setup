@@ -1,3 +1,5 @@
+Write-Verbose "======= Firefox Setup =======" -Verbose
+
 Function Get-DownloadDirectory {
     (New-Object -ComObject Shell.Application).NameSpace("shell:Downloads").Self.Path
 }
