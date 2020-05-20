@@ -9,6 +9,20 @@ If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]:
 
 Write-Verbose "======= Remove Apps & Keys =======" -Verbose
 
+# Disable LockScreen
+try {
+  Write-Verbose "Disabling sliding LockScreen" -Verbose
+  Rename-Item -Path "C:\Windows\SystemApps\Microsoft.LockApp_cw5n1h2txyewy" -NewName "!Microsoft.LockApp_cw5n1h2txyewy" -Force -ErrorAction Stop
+}
+catch {
+  Write-Verbose "Could not disable LockScreen. This is probably due to open handles. You can manually rename C:\Windows\SystemApps\Microsoft.LockApp_cw5n1h2txyewy" -Verbose
+}
+
+Write-Verbose "Disabling OnScreen Keyboard" -Verbose
+# Disable OnScreen Keyboard
+# https://www.reddit.com/r/Windows10/comments/8jbho9/windowsinternalcomposableshellexperiencestextinput/
+reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WindowsInternal.ComposableShell.Experiences.TextInput.InputApp.exe" /v Debugger /d "%SystemRoot%\system32\systray.exe" /f
+
 Function Remove-AppxPackages {
 
     $Bloatware = @(

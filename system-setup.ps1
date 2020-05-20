@@ -8,21 +8,10 @@
 #     - PSReadLine (for themes)
 #     - posh-git
 #     - oh-my-posh
-# 2. Disables LockScreen before password prompt
-# 3. Disables OnScreen Keyboard
 Write-Verbose "======= System Setup =======" -Verbose
 
 if ($PSVersionTable.PSVersion.Major -lt 6) {
   Write-Error "You need at least version 6 of powershell. Current version: $($PSVersionTable.PSVersion.Major)"
-  Exit
-}
-
-#This will self elevate the script with a UAC prompt since this script needs to be run as an Administrator in order to function properly.
-If (!([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]'Administrator')) {
-  Write-Host "You didn't run this script as an Administrator. This script will self elevate to run as an Administrator and continue."
-  Read-Host "Press ENTER to continue"
-  $CurrentShell = (Get-Process -Id $pid -FileVersionInfo | Select-Object -Property FileName).FileName
-  Start-Process $CurrentShell -ArgumentList ("-NoProfile -ExecutionPolicy Bypass -File `"{0}`"" -f $PSCommandPath) -Verb RunAs
   Exit
 }
 
@@ -37,7 +26,6 @@ catch {
   Write-Verbose "Could not copy Users\Documents\Powershell to $env:USERPROFILE\Documents. Please manually move it" -Verbose
   Start-Sleep 2
 }
-
 
 if (-Not (Get-Command "scoop" -ErrorAction SilentlyContinue)) {
   Write-Verbose "Installing scoop" -Verbose
@@ -120,19 +108,5 @@ if (-Not (Get-Module -ListAvailable -Name oh-my-posh)) {
   Write-Verbose "Installing oh-my-posh" -Verbose
   Install-Module oh-my-posh -Scope CurrentUser -Force
 }
-
-# Disable LockScreen
-try {
-  Write-Verbose "Disabling sliding LockScreen" -Verbose
-  Rename-Item -Path "C:\Windows\SystemApps\Microsoft.LockApp_cw5n1h2txyewy" -NewName "!Microsoft.LockApp_cw5n1h2txyewy" -Force -ErrorAction Stop
-}
-catch {
-  Write-Verbose "Could not disable LockScreen. This is probably due to open handles. You can manually rename C:\Windows\SystemApps\Microsoft.LockApp_cw5n1h2txyewy" -Verbose
-}
-
-Write-Verbose "Disabling OnScreen Keyboard" -Verbose
-# Disable OnScreen Keyboard
-# https://www.reddit.com/r/Windows10/comments/8jbho9/windowsinternalcomposableshellexperiencestextinput/
-reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\WindowsInternal.ComposableShell.Experiences.TextInput.InputApp.exe" /v Debugger /d "%SystemRoot%\system32\systray.exe" /f
 
 Read-Host "Press ENTER to exit"
