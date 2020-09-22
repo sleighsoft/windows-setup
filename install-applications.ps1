@@ -1,14 +1,6 @@
-# 1. Installs
-#   - scoop
-#     - git
-#     - grep
-#     - which
-#     - miniconda3
-#   - (Install-Module)
-#     - PSReadLine (for themes)
-#     - posh-git
-#     - oh-my-posh
-Write-Verbose "======= System Setup =======" -Verbose
+# Install applications
+
+Write-Verbose "======= Installing Applications =======" -Verbose
 
 if ($PSVersionTable.PSVersion.Major -lt 6) {
   Write-Error "You need at least version 6 of powershell. Current version: $($PSVersionTable.PSVersion.Major)"
@@ -78,15 +70,6 @@ if (Get-Command -Type Application "code" -ErrorAction SilentlyContinue) {
   code --install-extension VisualStudioExptTeam.vscodeintellicode
   code --install-extension bungcip.better-toml
   code --install-extension yzhang.markdown-all-in-one
-}
-
-try {
-  Write-Verbose "Moving VSCode settings to $env:APPDATA\Code\User\" -Verbose
-  Copy-Item Code\User\ $env:APPDATA\Code\ -recurse -force
-}
-catch {
-  Write-Verbose "Could not copy Code\User to $env:APPDATA\Code\User. Please manually move it" -Verbose
-  Start-Sleep 2
 }
 
 if (-Not (Get-Command -Type Application "firefox" -ErrorAction SilentlyContinue)) {

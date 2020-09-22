@@ -1,32 +1,32 @@
-# Setup Windows 10
+# Debloat & Setup Windows 10
 
-Removes unwanted software from Windows 10 installations!
+Removes unwanted software from Windows 10 installations & installs some useful applications!
+
+**Note:** These scripts are 100% based on personal preference. You may clone this repository and start your own Windows setup.
+
+## Installs
 
 Installs some useful software instead:
 
-- Powershell Core
+- Powershell Core (to `C:\Programs\PowerShell\`) (https://github.com/PowerShell/PowerShell)
 
-- scoop (package manager)
+- scoop (package manager) (https://github.com/lukesampson/scoop)
     - grep
     - which
-    - miniconda
-    - posh-git
-    - oh-my-posh + theme
+    - miniconda (https://docs.conda.io/en/latest/miniconda.html)
+    - posh-git (https://github.com/dahlbyk/posh-git)
+    - oh-my-posh + theme (https://github.com/JanDeDobbeleer/oh-my-posh)
         - SorinCustom
-    - vscode + extensions
-        - afgomez.better-cobalt
-        - hbenl.vscode-test-explorer
-        - littlefoxteam.vscode-python-test-adapter
-        - ms-python.python
-        - njpwerner.autodocstring
-        - tomoki1207.selectline-statusbar
-        - VisualStudioExptTeam.vscodeintellicode
-        - bungcip.better-toml
-        - yzhang.markdown-all-in-one
-    - firefox
-    - keepass
+    - vscode (editor)
+    - firefox (browser) + addons
+      - Decentraleyes
+      - NoScript
+      - UBlock Origin
+      - HTTPSEverywhere
+      - Vimium
+    - keepass (password manager)
 
-Disables:
+## Disables
 
 - LockScreen (that thing where you have to click once to remove before you can type in your password)
 - Bing Search in Windows search
@@ -45,8 +45,15 @@ Protect Privacy:
     - Disables scheduled tasks that are considered unnecessary 
     - Disabling the Diagnostics Tracking Service
 
+## Hides
 
-Removes default apps:
+- Explorer "Libraries"
+  - 3DObjects
+  - Music
+  - Videos
+  - Pictures
+
+## Removes
 
 - default Windows 10 apps
     - "Microsoft.3DBuilder"
@@ -84,7 +91,7 @@ Removes default apps:
     - "Microsoft.OneConnect"
     - "Microsoft.WindowsFeedbackHub"
 
-#Redstone apps
+- Redstone apps
     - "Microsoft.BingFoodAndDrink"
     - "Microsoft.BingTravel"
     - "Microsoft.BingHealthAndFitness"

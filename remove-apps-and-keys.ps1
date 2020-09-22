@@ -91,6 +91,7 @@ Function Remove-AppxPackages {
         #"*Microsoft.WindowsCalculator*"
         #"*Microsoft.WindowsStore*"
     )
+    Write-Verbose "Removing Appx packages" -Verbose
     foreach ($Bloat in $Bloatware) {
         Get-AppxPackage -Name $Bloat | Remove-AppxPackage
         Get-AppxProvisionedPackage -Online | Where-Object DisplayName -like $Bloat | Remove-AppxProvisionedPackage -Online
@@ -136,6 +137,7 @@ Function Remove-RegistryKeys {
     )
 
     #This writes the output of each key it is removing and also removes the keys listed above.
+    Write-Verbose "Removing registry keys" -Verbose
     ForEach ($Key in $Keys) {
         Write-Verbose "Removing $Key from registry" -Verbose
         Remove-Item $Key -Recurse
