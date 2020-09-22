@@ -26,6 +26,10 @@ Installs some useful software instead:
       - Vimium
     - keepass (password manager)
 
+## Enables
+
+- Windows Subsystem for Linux (WSL)
+
 ## Disables
 
 - LockScreen (that thing where you have to click once to remove before you can type in your password)
@@ -143,3 +147,11 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 Unblock-File .\run-all.ps1
 .\run-all.ps1
 ```
+
+## Updating to WSL 2
+
+To update to WSL 2, do the following after running `.\run-all.ps1` and after rebooting:
+
+1. Download & Install https://wslstorestorage.blob.core.windows.net/wslblob/wsl_update_x64.msi
+2. Open Powershell as Administrator and run: `wsl --set-default-version 2`
+3. Install a Linux from the MicrosoftStore and run it.
